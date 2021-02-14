@@ -112,13 +112,12 @@ $ az login --tenant the-tenant-id-we-copied
   {
     "cloudName": "AzureCloud",
 ```
-# Azure
+# Azure 1
 
 * Make a template in the portal, do not create it, just review and download template and paramter, set adminUsername and adminPassword to null
 * adminUsername and adminPassword will be set on deploy
-* This deployment needs an existing vnet, since we are creating and connecting the vm to the existing vnet
+* This deployment needs an existing vnet, since we are creating and connecting the vm to the existing vnet for the simple-vm
 
-# Ansible
 
 
 
