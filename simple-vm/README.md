@@ -1,0 +1,136 @@
+# azure-arm-ansible
+Stuff about Azure, ARM Templates, Ansible and Bash
+
+## Prerequisite 1 Git BASH, SSH and keys
+
+BASH connect to a Github repository and clone it.
+Make a folder and cd into it:
+mkdir az-arm-ansible
+cd az-arm-ansible
+
+Test connection to Github:
+```sh
+$ ssh -T git@github.com
+$ git@github.com: Permission denied (publickey).
+```
+
+Connecting to GitHub with SSH
+[connecting-to-github-with-ssh](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
+
+Checking for existing SSH keys
+```sh
+$ ls -al ~/.ssh
+```
+Check the directory listing to see if you already have a public SSH key. By default, the filenames of the public keys are one of the following:
+* id_rsa.pub
+* id_ecdsa.pub
+* id_ed25519.pub
+
+If you don't have an existing public and private key pair, or don't wish to use any that are available to connect to GitHub, then generate a new SSH key.
+
+[generating-a-new-ssh-key](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)
+
+Generating a new SSH key
+Paste the text below, substituting in your GitHub email address.
+
+```sh
+$ ssh-keygen -t ed25519 -C "your_email@example.com"
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/c/Users/admin/.ssh/id_ed25519):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/admin/.ssh/id_ed25519
+Your public key has been saved in /c/Users/admin/.ssh/id_ed25519.pub
+The key fingerprint is:
+```
+
+Adding a new SSH key to your GitHub account
+
+[adding-a-new-ssh-key-to-your-github-account](https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account)
+
+Copy the SSH public key content to your clipboard from:
+* id_ed25519.pub
+
+Go to Github->Profile->Settings->SSH and GPG keys
+* SSH Key add new
+* Title = a name
+* Key = ctrl-v (the content in id_ed25519.pub)
+
+[![Screenshot](x_ssh_key_1.jpg)
+
+Test connection to Github again and enter passphrase:
+```sh
+$ ssh -T git@github.com
+Enter passphrase for key '/c/Users/admin/.ssh/id_ed25519':
+Hi spawnmarvel! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+Now clone the repos and enter the passphrase:
+Choose SSH from Github (not HTTPS or the other)
+
+```sh
+$ git clone git@github.com:spawnmarvel/azure-arm-ansible.git
+Cloning into 'azure-arm-ansible'...
+Enter passphrase for key '/c/Users/admin/.ssh/id_ed25519':
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+```
+
+Cd into the folder
+```sh
+$ cd azure-arm-ansible
+```
+
+We are autmaticaly in the main branch (git switch <existing_branch>)
+
+Do some changes..
+```sh
+$ git add .
+$ git commit -m "a commit"
+$ git push
+Enter passphrase for key '/c/Users/admin/.ssh/id_ed25519':
+
+```
+[![Screenshot](x_git_bash.jpg)
+
+## Prerequisite 1  Az cli
+Download azure-cli for win
+
+[Azure CLI on Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
+
+When it is installed, login to Azure
+
+```sh
+$ az login
+# if that does not work, go to Portal.azure.com > Azure Active Directory > Properties and you will see the tenant id, cp it
+$ az login --tenant the-tenant-id-we-copied
+# The default web browser has been opened at https://login.microsoftonline.com/the-tenant-id-we-copied
+[
+  {
+    "cloudName": "AzureCloud",
+```
+# Azure
+
+* Make a template in the portal, do not create it, just review and download template and paramter, set adminUsername and adminPassword to null
+* adminUsername and adminPassword will be set on deploy
+* This deployment needs an existing vnet, since we are creating and connecting the vm to the existing vnet
+
+# Ansible
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
