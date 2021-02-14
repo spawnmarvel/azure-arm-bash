@@ -13,13 +13,7 @@ rm logstash-plain-2019*
 rm -f logstash-plain-2020-0[1]
 # remove all files with within april/may 2020
 rm -f logstash-plain-2020-0[34]
-
-# NANO
-# https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/
-sudo nano log
-
-# Install and remove git
+#Install and remove git
 sudo apt install git-all
 sudo apt-get remove git-all
 sudo apt install git
-
