@@ -51,6 +51,10 @@ Adding a new SSH key to your GitHub account
 Copy the SSH public key content to your clipboard from:
 * id_ed25519.pub
 
+If you are on Linux, access the SSH folder like this
+* ~/.shh
+* cat id_ed25519.pub
+
 Go to Github->Profile->Settings->SSH and GPG keys
 * SSH Key add new
 * Title = a name
