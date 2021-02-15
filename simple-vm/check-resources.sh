@@ -1,6 +1,6 @@
 # If the execution of the scipt is denied set chmod +x filename
-# If proxy error, set export no_proxy='*'
-# az login
+# If proxy error appears, set export no_proxy='*'
+# az login 
 echo "Remember to login an activate you role in the subscription you will work in. And provide a resource group name to check"
 RG_GROUP="test-az-rg"
 echo $RG_GROUP

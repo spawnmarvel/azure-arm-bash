@@ -1,3 +1,4 @@
+# get cmd help
 cp --help
 cp file.txt new_file.txt
 # follow the log file
