@@ -26,6 +26,9 @@ printf "Success configuration file ($CONFIG_FILE)\n"
 RG_GROUP=$MASTER_PREFIX"-sh-rg"
 echo $RG_GROUP
 
+# subscriptions
+az account show --query id -o json | tr -d '"'
+
 echo "Resource group info"
 RESULT_RG= az resource list --resource-group $RG_GROUP # --subscription $S_NAME
 echo "Virtual machine info"
