@@ -123,18 +123,17 @@ $ az login --tenant the-tenant-id-we-copied
 * Set adminUsername and adminPassword to null
 * adminUsername and adminPassword will be set on deploy
 * Add a parameter in parameters file, add the same parameters in template
-;;;
+```json
+"masterPrefixName": {
+            "value": null
+        },
+        
 "masterPrefixName": {
             "type": "string",
             "minLength": 3,
             "maxLength": 5
         },
-;;;
-;;;
-"masterPrefixName": {
-            "value": null
-        },
-;;;
+```
 * This deployment needs an existing vnet, since we are creating and connecting the vm to the existing vnet for the simple-vm
 
 
