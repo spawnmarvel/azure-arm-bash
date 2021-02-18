@@ -61,6 +61,7 @@ az deployment group $MODE \
     --parameters @vm.parameters.json \
     --parameters adminUsername="superteddy" \
     --parameters adminPassword="$PWORD" \
+    --parameters masterPrefixName="$MASTER_PREFIX" \
     --output table
 
 echo "To create the resource, give the argument <create>, now mode was: $MODE"
