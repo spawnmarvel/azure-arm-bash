@@ -5,8 +5,8 @@ Stuff about Azure, ARM Templates, Ansible and Bash
 
 BASH connect to a Github repository and clone it.
 Make a folder and cd into it:
-mkdir az-arm-ansible
-cd az-arm-ansible
+mkdir folder
+cd folder
 
 Test connection to Github:
 ```sh
@@ -85,7 +85,7 @@ Receiving objects: 100% (3/3), done.
 
 Cd into the folder
 ```sh
-$ cd azure-arm-ansible
+$ cd folder
 ```
 
 We are autmaticaly in the main branch (git switch <existing_branch>)
@@ -105,9 +105,10 @@ Download azure-cli for win
 
 [Azure CLI on Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 
-When it is installed, login to Azure
+When it is installed,export the configuration, test or prod, login to Azure
 
 ```sh
+$ export PIPELINE=test
 $ az login
 # if that does not work, go to Portal.azure.com > Azure Active Directory > Properties and you will see the tenant id, cp it
 $ az login --tenant the-tenant-id-we-copied
@@ -118,8 +119,22 @@ $ az login --tenant the-tenant-id-we-copied
 ```
 # Azure 1
 
-* Make a template in the portal, do not create it, just review and download template and paramter, set adminUsername and adminPassword to null
+* Make a template in the portal, do not create it, just review and download template and parameter
+* Set adminUsername and adminPassword to null
 * adminUsername and adminPassword will be set on deploy
+* Add a parameter in parameters file, add the same parameters in template
+;;;
+"masterPrefixName": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 5
+        },
+;;;
+;;;
+"masterPrefixName": {
+            "value": null
+        },
+;;;
 * This deployment needs an existing vnet, since we are creating and connecting the vm to the existing vnet for the simple-vm
 
 
