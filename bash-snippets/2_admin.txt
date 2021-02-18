@@ -1,3 +1,4 @@
+#!/bin/bash
 # be root
 sudo /bin/su -
 # install and remove git
