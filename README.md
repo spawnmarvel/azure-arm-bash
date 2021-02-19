@@ -1,5 +1,5 @@
-# azure-arm-ansible
-Stuff about Azure, ARM Templates, Ansible and Bash
+# azure-arm-bash
+Stuff about Azure, ARM Templates and Bash
 
 ## Prerequisite 1 Git BASH, SSH and keys
 
