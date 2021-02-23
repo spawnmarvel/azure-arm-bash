@@ -119,7 +119,7 @@ $ az login --tenant the-tenant-id-we-copied
 ```
 # Azure 1
 
-* Make a template in the portal, do not create it, just review and download template and parameter
+* Make a template in the portal and use an existing virtual network, do not create the vm, just review and download template and parameter
 * Set adminUsername and adminPassword to null
 * adminUsername and adminPassword will be set on deploy
 * Add a parameter in parameters file masterPrefixName, add the same parameters in template. 
