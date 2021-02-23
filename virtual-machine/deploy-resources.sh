@@ -70,8 +70,8 @@ echo "Password: $PWORD"
 
 if [ $MODE = "create" ]
 then
-    az deployment group show 
-    # subscription $S_NAME
+# subscription $S_NAME
+    az deployment group show \
     --resource-group $RG_GROUP \
     --name $DEPLOY_NAME \
     --query properties.outputs.adminUsername.value

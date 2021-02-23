@@ -2,17 +2,9 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+
         "masterPrefixName": {
             "value": null
-        },
-        "location": {
-            "value": "westeurope"
-        },
-        "networkInterfaceName": {
-            "value": "lsm-test-vm02370"
-        },
-        "networkSecurityGroupName": {
-            "value": "LSM-test-vm02-nsg"
         },
         "networkSecurityGroupRules": {
             "value": []
@@ -23,23 +15,12 @@
         "virtualNetworkId": {
             "value": "/subscriptions/f2da8212-69a4-42ed-a0b8-bfd2ab1b11c8/resourceGroups/testit2-rg/providers/Microsoft.Network/virtualNetworks/testit2-vnet"
         },
-        "publicIpAddressName": {
-            "value": "LSM-test-vm02-ip"
-        },
+        
         "publicIpAddressType": {
             "value": "Static"
         },
         "publicIpAddressSku": {
             "value": "Standard"
-        },
-        "virtualMachineName": {
-            "value": "LSM-test-vm02"
-        },
-        "virtualMachineComputerName": {
-            "value": "LSM-test-vm02"
-        },
-        "virtualMachineRG": {
-            "value": "LSM-sh-rg"
         },
         "osDiskType": {
             "value": "Premium_LRS"
