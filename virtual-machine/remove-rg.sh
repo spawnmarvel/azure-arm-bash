@@ -23,12 +23,16 @@ fi
 printf "Success configuration file ($CFG_FILE)\n"
 
 
-RG_GROUP="cloud-shell-storage-westeurope" # $MASTER_PREFIX"-sh-rg"
+RG_GROUP=$MASTER_PREFIX"-sh-rg"
 echo $RG_GROUP
 
 RG_EXISTS= az group exists --name $RG_GROUP
+echo $RG_EXISTS
 
 RG_RESULT= az group delete --name $RG_GROUP
+echo $RG_RESULT
+
+# https://www.oreilly.com/library/view/bash-cookbook/0596526784/ch07s03.html
 
 var= true
 if [ $? -eq 0 ]
