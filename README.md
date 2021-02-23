@@ -122,17 +122,53 @@ $ az login --tenant the-tenant-id-we-copied
 * Make a template in the portal, do not create it, just review and download template and parameter
 * Set adminUsername and adminPassword to null
 * adminUsername and adminPassword will be set on deploy
-* Add a parameter in parameters file, add the same parameters in template
+* Add a parameter in parameters file masterPrefixName, add the same parameters in template. 
+* In the Template use the prefix for below paramters, and remove them from the paramters file, since they are no longer needed
+
+## Parameters file
 ```json
 "masterPrefixName": {
             "value": null
         },
-        
+
+```
+## Template file
+```json
 "masterPrefixName": {
             "type": "string",
             "minLength": 3,
             "maxLength": 5
         },
+
+ "location": {
+            "type":"string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "networkInterfaceName": {
+            "type": "string",
+            "defaultValue": "[concat(parameters('masterPrefixName'), '-test-vm-nic')]"
+        },
+        "networkSecurityGroupName": {
+            "type": "string",
+            "defaultValue": "[concat(parameters('masterPrefixName'), '-test-vm-nsg')]"
+        },
+
+"publicIpAddressName": {
+            "type": "string",
+            "defaultValue": "[concat(parameters('masterPrefixName'), '-test-vm-ip')]"
+        },   
+"virtualMachineName": {
+            "type": "string",
+            "defaultValue": "[concat(parameters('masterPrefixName'), '-test-vm')]"
+        },
+        "virtualMachineComputerName": {
+            "type": "string",
+            "defaultValue": "[concat(parameters('masterPrefixName'), '-test-vm')]"
+        },
+        "virtualMachineRG": {
+            "type": "string",
+            "defaultValue": "[concat(parameters('masterPrefixName'), '-test-vm-rg')]"
+        },         
 ```
 * This deployment needs an existing vnet, since we are creating and connecting the vm to the existing vnet for the simple-vm
 
