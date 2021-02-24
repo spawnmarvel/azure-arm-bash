@@ -19,7 +19,8 @@ function total_files {
 function total_directories {
     find $1 -type d | wc -l
 }
-
+# Now that we have a basic understanding of the output redirection we can eliminate this unwanted stderr message by redirecting it with 2> notation to /dev/null. 
+# Imagine /dev/null as a data sink, which discards any data redirected to it.
 tar -czf $output $input 2> /dev/null
 
 echo -n "Files to include:"
