@@ -30,3 +30,12 @@ total_directories $input
 
 echo "Backup of $input completed. Details:"
 ls -l $output
+
+# function multiple args
+function mult_args {
+    echo $1
+    echo $2
+}
+var1="var1"
+var2=2
+mult_args $var1 $var2
