@@ -194,10 +194,6 @@
         "adminUsername": {
             "type": "string",
             "value": "[parameters('adminUsername')]"
-        },
-        "osDiskType": {
-            "type": "string",
-            "value": "[parameters('osDiskType')]"
         }
 
     }
