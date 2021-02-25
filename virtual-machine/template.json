@@ -60,7 +60,7 @@
             "type": "string"
         },
         "dataDisks": {
-            "type": "Array",
+            "type": "array",
             "defaultValue": [
                 {
                     "lun": 0,
@@ -76,7 +76,7 @@
             ]
         },
         "dataDiskResources": {
-            "type": "Array",
+            "type": "array",
             "defaultValue": [
                 {
                     "name": "[concat(parameters('masterPrefixName'), '-datadisk-0')]",
