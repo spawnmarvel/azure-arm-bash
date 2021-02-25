@@ -127,7 +127,7 @@ $ az login --tenant the-tenant-id-we-copied
 * adminUsername and adminPassword will be set on deploy
 * Add a parameter in parameters file masterPrefixName, add the same parameters in template. 
 * In the Template use the prefix for below paramters, and remove them from the paramters file, since they are no longer needed
-* Added one datadisk in the template file
+* Added one datadisk in the template file, the  "type": "Microsoft.Compute/disks", is an isolated object, the copy object belongs to "type": "Microsoft.Compute/virtualMachines",
 
 ## Parameters file
 ```json
