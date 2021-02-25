@@ -105,6 +105,9 @@ Download azure-cli for win
 
 [Azure CLI on Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 
+#### Note about AZ cli version
+[Azure CLI on Windows --parameters @file.jso](https://github.com/Azure/azure-cli/issues/3729)
+
 When it is installed,export the configuration, test or prod, login to Azure
 
 ```sh
@@ -124,6 +127,7 @@ $ az login --tenant the-tenant-id-we-copied
 * adminUsername and adminPassword will be set on deploy
 * Add a parameter in parameters file masterPrefixName, add the same parameters in template. 
 * In the Template use the prefix for below paramters, and remove them from the paramters file, since they are no longer needed
+* Added one datadisk in the template file
 
 ## Parameters file
 ```json
@@ -169,6 +173,77 @@ $ az login --tenant the-tenant-id-we-copied
             "type": "string",
             "defaultValue": "[concat(parameters('masterPrefixName'), '-test-vm-rg')]"
         },         
+
+
+
+         "dataDisks": {
+            "type": "Array",
+            "defaultValue": [
+                {
+                    "lun": 0,
+                    "createOption": "attach",
+                    "caching": "None",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "[concat(parameters('masterPrefixName'), '-datadisk-0')]",
+                    "storageAccountType": null,
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": null
+                }
+            ]
+        },
+        "dataDiskResources": {
+            "type": "Array",
+            "defaultValue": [
+                {
+                    "name": "[concat(parameters('masterPrefixName'), '-datadisk-0')]",
+                    "sku": "Premium_LRS",
+                    "properties": {
+                        "diskSizeGB": 16,
+                        "creationData": {
+                            "createOption": "empty"
+                        }
+                    }
+                }
+            ]
+        },
+
+         {
+            "name": "[parameters('dataDiskResources')[copyIndex()].name]",
+            "type": "Microsoft.Compute/disks",
+            "apiVersion": "2020-09-30",
+            "location": "[parameters('location')]",
+            "properties": "[parameters('dataDiskResources')[copyIndex()].properties]",
+            "sku": {
+                "name": "[parameters('dataDiskResources')[copyIndex()].sku]"
+            },
+            "copy": {
+                "name": "managedDiskResources",
+                "count": "[length(parameters('dataDiskResources'))]"
+            },
+            "zones": [
+                "[parameters('zone')]"
+            ]
+        },
+
+
+        "copy": [
+                        {
+                            "name": "dataDisks",
+                            "count": "[length(parameters('dataDisks'))]",
+                            "input": {
+                                "lun": "[parameters('dataDisks')[copyIndex('dataDisks')].lun]",
+                                "createOption": "[parameters('dataDisks')[copyIndex('dataDisks')].createOption]",
+                                "caching": "[parameters('dataDisks')[copyIndex('dataDisks')].caching]",
+                                "diskSizeGB": "[parameters('dataDisks')[copyIndex('dataDisks')].diskSizeGB]",
+                                "managedDisk": {
+                                    "id": "[coalesce(parameters('dataDisks')[copyIndex('dataDisks')].id, if(equals(parameters('dataDisks')[copyIndex('dataDisks')].name, json('null')), json('null'), resourceId('Microsoft.Compute/disks', parameters('dataDisks')[copyIndex('dataDisks')].name)))]",
+                                    "storageAccountType": "[parameters('dataDisks')[copyIndex('dataDisks')].storageAccountType]"
+                                },
+                                "writeAcceleratorEnabled": "[parameters('dataDisks')[copyIndex('dataDisks')].writeAcceleratorEnabled]"
+                            }
+                        }
+                    ]
 ```
 * This deployment needs an existing vnet, since we are creating and connecting the vm to the existing vnet for the simple-vm
 
