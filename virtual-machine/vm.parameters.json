@@ -25,6 +25,7 @@
         "osDiskType": {
             "value": "Premium_LRS"
         },
+
         "virtualMachineSize": {
             "value": "Standard_B1s"
         },
