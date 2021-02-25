@@ -27,7 +27,8 @@ RG_GROUP=$MASTER_PREFIX"-sh-rg"
 echo $RG_GROUP
 
 # subscriptions
-az account show --query id -o json | tr -d '"'
+SUB_ID=$(az account show --query id -o json | tr -d '"')
+echo "Subscription ID: $SUB_ID"
 
 echo "Resource group info"
 RESULT_RG= az resource list --resource-group $RG_GROUP # --subscription $S_NAME
