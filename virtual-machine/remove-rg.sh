@@ -32,6 +32,7 @@ echo $RG_EXISTS
 RG_RESULT= az group delete --name $RG_GROUP
 echo $RG_RESULT
 
+# 
 # https://www.oreilly.com/library/view/bash-cookbook/0596526784/ch07s03.html
 
 var= true
