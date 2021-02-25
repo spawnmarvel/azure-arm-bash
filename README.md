@@ -106,7 +106,10 @@ Download azure-cli for win
 [Azure CLI on Windows](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli)
 
 #### Note about AZ cli version
-[Azure CLI on Windows --parameters @file.jso](https://github.com/Azure/azure-cli/issues/3729)
+[Azure CLI on Windows --parameters @file.jso.](https://github.com/Azure/azure-cli/issues/3729)
+
+#### Note about what-if
+[The what-if operation can't resolve the reference function](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-deploy-what-if?tabs=azure-powershell)
 
 When it is installed,export the configuration, test or prod, login to Azure
 
