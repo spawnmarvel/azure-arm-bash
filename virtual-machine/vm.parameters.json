@@ -2,7 +2,6 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-
         "masterPrefixName": {
             "value": null
         },
@@ -15,7 +14,6 @@
         "virtualNetworkId": {
             "value": "/subscriptions/f2da8212-69a4-42ed-a0b8-bfd2ab1b11c8/resourceGroups/testit2-rg/providers/Microsoft.Network/virtualNetworks/testit2-vnet"
         },
-        
         "publicIpAddressType": {
             "value": "Static"
         },
@@ -25,7 +23,7 @@
         "osDiskType": {
             "value": "Premium_LRS"
         },
-
+        
         "virtualMachineSize": {
             "value": "Standard_B1s"
         },

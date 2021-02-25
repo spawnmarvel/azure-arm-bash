@@ -11,16 +11,16 @@ then
 fi
 
 # Location configuration
-CFG_FILE="$LOCATION_SCRIPT/../configuration/$PIPELINE.cfg"
+CONFIG_FILE="$LOCATION_SCRIPT/../configuration/$PIPELINE.cfg"
 
-source "$CFG_FILE" 2> /dev/null
+source "$CONFIG_FILE" 2> /dev/null
 if [ ! $? -eq 0 ]
 then
-    printf "Error cannot fint configuration file $CFG_FILE\n"
+    printf "Error cannot fint configuration file $CONFIG_FILE\n"
     exit 1
 fi
 
-printf "Success configuration file ($CFG_FILE)\n"
+printf "Success configuration file ($CONFIG_FILE)\n"
 
 
 RG_GROUP=$MASTER_PREFIX"-sh-rg"
