@@ -29,7 +29,7 @@ echo $RG_GROUP
 RG_EXISTS= az group exists --name $RG_GROUP
 echo $RG_EXISTS
 
-RG_RESULT= az group delete --name $RG_GROUP
+RG_RESULT= az group delete --name $RG_GROUP --no-wait --yes -y #--subscription
 echo $RG_RESULT
 
 # 
