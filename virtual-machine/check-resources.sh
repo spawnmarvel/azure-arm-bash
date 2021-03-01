@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+echo "export PIPELINE=test, on top level"
 # Location script
 LOCATION_SCRIPT="$( cd "$( dirname "${BASH_SOURCE}" )" >/dev/null && pwd )"
 
