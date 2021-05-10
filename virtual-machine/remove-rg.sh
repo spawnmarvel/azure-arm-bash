@@ -24,10 +24,10 @@ printf "Success configuration file ($CFG_FILE)\n"
 
 
 RG_GROUP=$MASTER_PREFIX"-sh-rg"
-echo $RG_GROUP
+echo "Name of rg; $RG_GROUP"
 
 RG_EXISTS= az group exists --name $RG_GROUP
-echo $RG_EXISTS
+echo "Does rg exist; $RG_EXISTS"
 
 RG_RESULT= az group delete --name $RG_GROUP --no-wait --yes -y #--subscription
 echo $RG_RESULT
