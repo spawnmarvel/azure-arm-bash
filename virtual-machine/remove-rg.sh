@@ -32,9 +32,13 @@ echo "Does rg exist; $RG_EXISTS"
 RG_RESULT= az group delete --name $RG_GROUP --no-wait --yes -y #--subscription
 echo $RG_RESULT
 
+echo "It can take anything form 5-20 min before rg is removed from Azure"
+echo "When: ResourceNotFoundError: Resource group 'your-rg' could not be found. Then all resources are gone"
+
 # 
 # https://www.oreilly.com/library/view/bash-cookbook/0596526784/ch07s03.html
 
+echo "Just a bool test"
 var= true
 if [ $? -eq 0 ]
 then
