@@ -58,7 +58,7 @@ If you are on Linux, access the SSH folder like this
 Go to Github->Profile->Settings->SSH and GPG keys
 * SSH Key add new
 * Title = a name
-* Key = ctrl-v (the content in id_ed25519.pub)
+* Key = ctrl-v (the content in id_ed25519.pub it is one line with @ also)
 
 [![Screenshot](x_ssh_key_1.jpg)
 
